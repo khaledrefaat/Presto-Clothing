@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function MenuItem({ title, imgSrc }) {
+function MenuItem({ title, imgSrc, linkPath }) {
   return (
     <>
       <Card className="menu-item">
