@@ -5,9 +5,9 @@ import './Homepage.scss';
 
 function Homepage() {
   function renderItem(arr) {
-    const newArr = arr.map(curr => {
+    const newArr = arr.map((curr, index) => {
       return (
-        <Col xs="12" sm={12 / arr.length}>
+        <Col key={index} xs="12" sm={12 / arr.length}>
           <MenuItem
             title={curr}
             linkPath={`/${curr}`}
