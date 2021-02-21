@@ -2,6 +2,14 @@
   border: none;
   border-radius: 1rem;
   position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+
+  &:hover .card-button {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 }
 
 .card-content {
@@ -38,5 +46,12 @@
 
   &:active {
     transform: translateX(-50%) translateY(2px);
+  }
+
+  // 770px to make it work untill iPad width
+  @media only screen and (min-width: 48.125em) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
