@@ -3,8 +3,6 @@ import shopData from './shopData';
 import CollectionPreview from '../componenets/CollectionPreview';
 import { Container } from 'react-bootstrap';
 
-import './Shop.scss';
-
 export class Shop extends Component {
   state = {
     collections: shopData,
@@ -13,8 +11,7 @@ export class Shop extends Component {
   render() {
     console.log(this.state.collections);
     return (
-      <Container fluid className="shop-container">
-        <h1>Collections</h1>
+      <Container fluid style={{ marginTop: '2rem' }}>
         {this.state.collections.map(({ id, ...others }) => (
           <CollectionPreview key={id} len="4" {...others} />
         ))}

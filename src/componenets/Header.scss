@@ -1,0 +1,26 @@
+.navbar {
+  margin-bottom: 3rem;
+
+  @media only screen and (min-width: 37.5em) {
+    background-color: transparent;
+  }
+
+  &__item {
+    margin: 1rem 0;
+
+    @media only screen and (min-width: 37.5em) {
+      margin: 0 1rem;
+    }
+  }
+
+  // 634px (before mobile nav)
+  a {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 300;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #777;
+  }
+}

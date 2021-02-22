@@ -13,7 +13,7 @@ function CollectionPreview({ title, len, items }) {
           {items
             .filter((item, index) => index < len)
             .map(item => (
-              <Col key={item.id} lg="3" sm="6" xs="12">
+              <Col key={item.id} md="3" sm="6" xs="12">
                 <Card className="shop-card">
                   <div className="img-container">
                     <Card.Img variant="top" src={item.imageUrl} />
@@ -35,7 +35,7 @@ function CollectionPreview({ title, len, items }) {
       <Row>
         <Col lg="12">{title}</Col>
         {items.map(item => (
-          <Col key={item.id} lg="3" sm="6" xs="12">
+          <Col key={item.id} md="3" sm="6" xs="12">
             <Card className="shop-card">
               <div className="img-container">
                 <Card.Img variant="top" src={item.imageUrl} />

@@ -11,7 +11,7 @@ function Homepage() {
           <MenuItem
             title={curr}
             linkPath={`/${curr}`}
-            imgSrc={`/images/${curr}.jpg`}
+            imgSrc={`/assets/${curr}.jpg`}
           />
         </Col>
       );
