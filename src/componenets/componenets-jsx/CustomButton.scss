@@ -1,0 +1,36 @@
+$color-black: #000;
+$color-white: #fff;
+
+.custom-button {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-out;
+  border: 1px solid transparent;
+  transform: translateY(0);
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:active:focus {
+    box-shadow: none !important;
+  }
+}
+
+.background-black {
+  background-color: $color-black;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-black;
+    border: 1px solid $color-black;
+  }
+}

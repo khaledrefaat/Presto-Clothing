@@ -18,3 +18,49 @@ body {
   line-height: 1.6;
   font-weight: 400;
 }
+
+// utilites
+
+// margin-top
+.mt-sm {
+  margin-top: 1rem;
+}
+.mt-md {
+  margin-top: 3rem;
+}
+.mt-lg {
+  margin-top: 5rem;
+}
+
+// margin-right
+.mr-sm {
+  margin-right: 1rem;
+}
+.mr-md {
+  margin-right: 3rem;
+}
+.mr-lg {
+  margin-right: 5rem;
+}
+
+// margin-bottom
+.mb-sm {
+  margin-bottom: 1rem;
+}
+.mb-md {
+  margin-bottom: 3rem;
+}
+.mb-lg {
+  margin-bottom: 5rem;
+}
+
+// margin-left
+.ml-sm {
+  margin-left: 1rem;
+}
+.ml-md {
+  margin-left: 3rem;
+}
+.ml-lg {
+  margin-left: 5rem;
+}

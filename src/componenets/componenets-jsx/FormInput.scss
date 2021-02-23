@@ -1,0 +1,22 @@
+.form-input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 40rem;
+  outline: none;
+  height: 4rem;
+  border-bottom: 1px solid #000;
+  font-size: 1.6rem;
+  padding-bottom: 2rem;
+  &:first-of-type {
+    margin-bottom: 6rem;
+    margin-top: 3rem;
+  }
+  &:last-of-type {
+    margin-bottom: 3rem;
+  }
+
+  ::placeholder {
+    text-transform: capitalize;
+  }
+}

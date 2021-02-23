@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Header.scss';
-import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 function Header() {
   return (
@@ -24,7 +24,7 @@ function Header() {
               <Link to="/contact">Contact</Link>
             </Nav.Item>
             <Nav.Item className="navbar__item">
-              <Link to="/login">Sign In</Link>
+              <Link to="/signin">Sign In</Link>
             </Nav.Item>
             <Nav.Item className="navbar__item">
               <Link to="/cart">

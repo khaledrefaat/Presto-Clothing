@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import MenuItem from '../componenets/MenuItem';
-import './Homepage.scss';
+import MenuItem from '../componenets/componenets-jsx/MenuItem';
+import './homepage.scss';
 
 function Homepage() {
   function renderItem(arr) {

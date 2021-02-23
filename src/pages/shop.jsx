@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import shopData from './shopData';
-import CollectionPreview from '../componenets/CollectionPreview';
+import CollectionPreview from '../componenets/componenets-jsx/CollectionPreview';
 import { Container } from 'react-bootstrap';
 
 export class Shop extends Component {
