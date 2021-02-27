@@ -6,10 +6,10 @@ function signinSignup() {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col sm="12" md="6">
           <Signin />
         </Col>
-        <Col>
+        <Col sm="12" md="6">
           <div>Signup</div>
         </Col>
       </Row>

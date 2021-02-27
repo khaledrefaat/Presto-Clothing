@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase';
 
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Header.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
-function Header() {
+function Header({ userId }) {
+  console.log(userId);
   return (
     <Container expand="md">
       <Navbar sticky="top" collapseOnSelect expand="sm" className="navbar">
@@ -23,9 +25,20 @@ function Header() {
             <Nav.Item className="navbar__item">
               <Link to="/contact">Contact</Link>
             </Nav.Item>
-            <Nav.Item className="navbar__item">
-              <Link to="/signin">Sign In</Link>
-            </Nav.Item>
+            {userId ? (
+              <Nav.Item
+                onClick={() => {
+                  auth.signOut();
+                  console.log(userId);
+                }}
+                className="navbar__item">
+                Sign Out
+              </Nav.Item>
+            ) : (
+              <Nav.Item className="navbar__item">
+                <Link to="/signin">Sign In</Link>
+              </Nav.Item>
+            )}
             <Nav.Item className="navbar__item">
               <Link to="/cart">
                 <i className="fas fa-shopping-cart" />

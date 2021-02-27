@@ -2,12 +2,16 @@ $color-black: #000;
 $color-white: #fff;
 
 .custom-button {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   padding: 1rem 2rem;
   text-transform: uppercase;
   transition: all 0.3s ease-out;
   border: 1px solid transparent;
   transform: translateY(0);
+
+  @media only screen and (min-width: 62em) {
+    font-size: 1.6rem;
+  }
 
   &:active {
     transform: translateY(2px);
