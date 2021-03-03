@@ -4,9 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 function signinSignup() {
   return (
-    <Container>
+    <Container className="signin-signup-container">
       <Row>
-        <Col sm="12" md="6">
+        <Col sm="12" md="6" center>
           <Signin />
         </Col>
         <Col sm="12" md="6">
@@ -18,3 +18,5 @@ function signinSignup() {
 }
 
 export default signinSignup;
+
+// you should make the container childs center if you open the page responsive you will understand

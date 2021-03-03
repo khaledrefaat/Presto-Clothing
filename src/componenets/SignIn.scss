@@ -4,7 +4,8 @@ $color-dark-grey: #222;
 .sign-in {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 
   h2 {
     font-size: 1.6rem;
@@ -21,7 +22,11 @@ $color-dark-grey: #222;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 35rem;
+  width: 30rem;
+
+  @media only screen and (min-width: 25em) {
+    width: 35rem;
+  }
 
   & > :first-child {
     margin-right: 2rem;
