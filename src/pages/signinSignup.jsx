@@ -6,7 +6,7 @@ function signinSignup() {
   return (
     <Container className="signin-signup-container">
       <Row>
-        <Col sm="12" md="6" center>
+        <Col sm="12" md="6">
           <Signin />
         </Col>
         <Col sm="12" md="6">
