@@ -5,6 +5,7 @@ $color-dark-grey: #222;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 
   h2 {
     font-size: 1.6rem;
@@ -15,16 +16,46 @@ $color-dark-grey: #222;
     font-size: 1.4rem;
     font-weight: 300;
   }
+
+  &__form {
+    text-align: center;
+    width: 100%;
+
+    // 440px
+    @media only screen and (min-width: 27.5em) {
+      width: 80%;
+    }
+
+    // 576
+    @media only screen and (min-width: 36em) {
+      width: 90%;
+    }
+
+    // 768
+    @media only screen and (min-width: 48em) {
+      width: 100%;
+    }
+  }
 }
 
 .btn-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 30rem;
+  width: 100%;
 
-  @media only screen and (min-width: 25em) {
-    width: 35rem;
+  // 440px
+  @media only screen and (min-width: 27.5em) {
+    width: 80%;
+  }
+
+  // 576
+  @media only screen and (min-width: 36em) {
+    width: 90%;
+  }
+
+  // 768
+  @media only screen and (min-width: 48em) {
+    width: 100%;
   }
 
   & > :first-child {

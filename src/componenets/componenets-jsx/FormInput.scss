@@ -2,16 +2,12 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  width: 30rem;
+  width: 100%;
   outline: none;
   height: 4rem;
   border-bottom: 1px solid #000;
   font-size: 1.6rem;
   padding-bottom: 2rem;
-
-  @media only screen and (min-width: 25em) {
-    width: 35rem;
-  }
 
   &:first-of-type {
     margin-bottom: 6rem;

@@ -1,16 +1,18 @@
 import React from 'react';
 import SignIn from '../componenets/SignIn';
+import SignUp from '../componenets/SignUp';
 import { Container, Row, Col } from 'react-bootstrap';
+import './signinSignup.scss';
 
 function signinSignup() {
   return (
     <Container className="signin-signup-container">
-      <Row>
-        <Col sm="12" md="6">
+      <Row className="signin-signup-row">
+        <Col xs="11" sm="10" md="6">
           <SignIn />
         </Col>
-        <Col sm="12" md="6">
-          SignUp
+        <Col xs="11" sm="10" md="6">
+          <SignUp />
         </Col>
       </Row>
     </Container>
