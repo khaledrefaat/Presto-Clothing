@@ -6,8 +6,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Header.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
-function Header({ userId }) {
-  console.log(userId);
+function Header({ currentUser }) {
   return (
     <Container expand="md">
       <Navbar sticky="top" collapseOnSelect expand="sm" className="navbar">
@@ -25,11 +24,11 @@ function Header({ userId }) {
             <Nav.Item className="navbar__item">
               <Link to="/contact">Contact</Link>
             </Nav.Item>
-            {userId ? (
+            {currentUser ? (
               <Nav.Item
                 onClick={() => {
                   auth.signOut();
-                  console.log(userId);
+                  console.log(currentUser);
                 }}
                 className="navbar__item">
                 Sign Out

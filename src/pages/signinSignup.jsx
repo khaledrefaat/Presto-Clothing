@@ -1,5 +1,5 @@
 import React from 'react';
-import Signin from '../componenets/SignIn';
+import SignIn from '../componenets/SignIn';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function signinSignup() {
@@ -7,10 +7,10 @@ function signinSignup() {
     <Container className="signin-signup-container">
       <Row>
         <Col sm="12" md="6">
-          <Signin />
+          <SignIn />
         </Col>
         <Col sm="12" md="6">
-          <div>Signup</div>
+          SignUp
         </Col>
       </Row>
     </Container>
