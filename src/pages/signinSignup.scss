@@ -4,8 +4,15 @@
   justify-content: center;
   flex-direction: column;
 
+  // 992px
+  @media only screen and (min-width: 62em) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
   // 768px
   @media only screen and (min-width: 48em) {
     flex-direction: row;
+    justify-content: space-around;
   }
 }

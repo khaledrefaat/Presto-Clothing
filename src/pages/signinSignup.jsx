@@ -6,12 +6,12 @@ import './signinSignup.scss';
 
 function signinSignup() {
   return (
-    <Container className="signin-signup-container">
+    <Container fluid className="signin-signup-container">
       <Row className="signin-signup-row">
-        <Col xs="11" sm="10" md="6">
+        <Col xs="11" sm="9" md="6" lg="5">
           <SignIn />
         </Col>
-        <Col xs="11" sm="10" md="6">
+        <Col xs="11" sm="9" md="6" lg="5">
           <SignUp />
         </Col>
       </Row>

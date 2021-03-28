@@ -32,16 +32,12 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 1.5rem;
+  padding: 1rem;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease-out;
 
-  // 580px
-  @media only screen and (min-width: 36em) {
-    padding: 1rem;
-  }
   // 800px
   @media only screen and (min-width: 50em) {
     padding: 1.5rem;

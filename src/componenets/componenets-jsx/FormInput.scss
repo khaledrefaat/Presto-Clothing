@@ -8,13 +8,11 @@
   border-bottom: 1px solid #000;
   font-size: 1.6rem;
   padding-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 
   &:first-of-type {
-    margin-bottom: 6rem;
-    margin-top: 3rem;
-  }
-  &:last-of-type {
-    margin-bottom: 3rem;
+    margin-top: 4rem;
   }
 
   ::placeholder {

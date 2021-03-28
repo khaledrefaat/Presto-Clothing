@@ -20,7 +20,7 @@ function Homepage() {
   }
 
   return (
-    <Container fluid="md" className="homepage">
+    <Container fluid="lg" className="homepage">
       <div className="directory-menu">
         <Row>{renderItem(['hats', 'jackets', 'sneakers'])}</Row>
         <Row>{renderItem(['womens', 'mens'])}</Row>
