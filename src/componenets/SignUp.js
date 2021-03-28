@@ -11,7 +11,10 @@ class SignUp extends Component {
     confirmPassword: '',
   };
 
-  onFormChange = () => {};
+  onFormChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
 
   render() {
     return (
