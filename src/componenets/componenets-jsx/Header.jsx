@@ -25,12 +25,7 @@ function Header({ currentUser }) {
               <Link to="/contact">Contact</Link>
             </Nav.Item>
             {currentUser ? (
-              <Nav.Item
-                onClick={() => {
-                  auth.signOut();
-                  console.log(currentUser);
-                }}
-                className="navbar__item">
+              <Nav.Item onClick={() => auth.signOut()} className="navbar__item">
                 Sign Out
               </Nav.Item>
             ) : (
