@@ -2,15 +2,16 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import './CustomButton.scss';
 
-function CustomButton({ custom, children, className, ...otherProps }) {
+function CustomButton({ type, children, className, ...otherProps }) {
   return (
     <>
-      {custom ? (
+      {type ? (
         <Button
           variant="dark"
           className={`custom-button background-black ${
             className ? className : ''
-          }`}>
+          }`}
+          type={type}>
           {children}
         </Button>
       ) : (
