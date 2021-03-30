@@ -5,6 +5,7 @@ import Header from './componenets/componenets-jsx/Header';
 import SigninSignup from './pages/signinSignup';
 import { Route } from 'react-router-dom';
 import { auth, createUserProfileDocument } from './firebase/firebase';
+import { connect } from 'react-redux';
 
 import './App.scss';
 
@@ -36,9 +37,10 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="App">
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop" component={Shop} />
         <Route exact path="/signin" component={SigninSignup} />
@@ -47,4 +49,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  state,
+});
+
+export default connect(mapStateToProps)(App);
