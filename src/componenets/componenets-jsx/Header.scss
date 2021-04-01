@@ -1,8 +1,14 @@
 .navbar {
-  margin-bottom: 3rem;
+  margin: 3rem 0;
+  position: relative;
 
+  // 600px
   @media only screen and (min-width: 37.5em) {
     background-color: transparent;
+  }
+
+  &__nav {
+    align-items: center;
   }
 
   &__item {

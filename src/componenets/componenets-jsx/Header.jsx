@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase';
 import { connect } from 'react-redux';
-
+import CartIcon from './CartIcon';
+import CartDropdown from './CartDropdown';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Header.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
-function Header({ currentUser }) {
+function Header({ currentUser, toggleCart }) {
   return (
     <Container expand="md">
       <Navbar sticky="top" collapseOnSelect expand="sm" className="navbar">
@@ -35,19 +36,19 @@ function Header({ currentUser }) {
               </Nav.Item>
             )}
             <Nav.Item className="navbar__item">
-              <Link to="/cart">
-                <i className="fas fa-shopping-cart" />
-              </Link>
+              <CartIcon />
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
+        {toggleCart ? null : <CartDropdown />}
       </Navbar>
     </Container>
   );
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user, toggleCart }) => ({
+  currentUser: user.currentUser,
+  toggleCart: toggleCart.hidden,
 });
 
 export default connect(mapStateToProps)(Header);
