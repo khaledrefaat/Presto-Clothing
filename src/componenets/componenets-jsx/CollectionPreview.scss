@@ -10,6 +10,7 @@
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  height: 100%;
 
   &:hover &__button {
     opacity: 1;
@@ -57,6 +58,11 @@
     width: 80%;
     // to over write the customButton transfrom
     transform: translateX(-50%) !important;
+
+    // 576px (2 column grid)
+    @media only screen and (min-width: 36em) {
+      bottom: 25%;
+    }
 
     // 770px to make it work untill iPad width
     @media only screen and (min-width: 48.125em) {

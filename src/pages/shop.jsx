@@ -9,11 +9,10 @@ export class Shop extends Component {
   };
 
   render() {
-    console.log(this.state.collections);
     return (
       <Container fluid style={{ marginTop: '2rem' }}>
-        {this.state.collections.map(({ id, ...others }) => (
-          <CollectionPreview key={id} len="4" {...others} />
+        {this.state.collections.map(item => (
+          <CollectionPreview key={item.id} len="4" item={item} />
         ))}
       </Container>
     );

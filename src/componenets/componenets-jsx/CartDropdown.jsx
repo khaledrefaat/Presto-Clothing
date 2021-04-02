@@ -51,7 +51,7 @@ function CartDropdown() {
           </div>
         </div>
       </div>
-      <CustomButton type="submit">go to checkout</CustomButton>
+      <CustomButton blackInverted="black-inverted">go to checkout</CustomButton>
     </div>
   );
 }

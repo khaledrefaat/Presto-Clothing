@@ -1,9 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addItem } from '../../redux/actions/cartAction';
 import { Row, Col, Card } from 'react-bootstrap';
 import './CollectionPreview.scss';
 import CustomButton from './CustomButton';
 
-function CollectionPreview({ title, len, items }) {
+function CollectionPreview({ item, len, addItem }) {
+  const { title, items } = item;
+  const addToCart = item => addItem(item);
   function renderCollections() {
     if (len) {
       return (
@@ -26,7 +30,8 @@ function CollectionPreview({ title, len, items }) {
                     </div>
                     <CustomButton
                       checkOut="check-out"
-                      className="shop-card__button">
+                      className="shop-card__button"
+                      onClick={() => addToCart(item)}>
                       add to cart
                     </CustomButton>
                   </Card.Body>
@@ -50,7 +55,12 @@ function CollectionPreview({ title, len, items }) {
                   <h3>{item.name}</h3>
                   <h3>{item.price}$</h3>
                 </div>
-                <button className="card-button">add to cart</button>
+                <CustomButton
+                  checkOut="check-out"
+                  className="shop-card__button"
+                  onClick={() => addToCart(item)}>
+                  add to cart
+                </CustomButton>
               </Card.Body>
             </Card>
           </Col>
@@ -62,4 +72,4 @@ function CollectionPreview({ title, len, items }) {
   return renderCollections();
 }
 
-export default CollectionPreview;
+export default connect(null, { addItem })(CollectionPreview);
