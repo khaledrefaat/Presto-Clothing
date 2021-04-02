@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import './CollectionPreview.scss';
+import CustomButton from './CustomButton';
 
 function CollectionPreview({ title, len, items }) {
   function renderCollections() {
@@ -15,15 +16,19 @@ function CollectionPreview({ title, len, items }) {
             .map(item => (
               <Col key={item.id} md="3" sm="6" xs="12">
                 <Card className="shop-card">
-                  <div className="img-container">
+                  <div className="shop-card__img-container">
                     <Card.Img variant="top" src={item.imageUrl} />
                   </div>
                   <Card.Body>
-                    <div className="card-content">
+                    <div className="shop-card__content">
                       <h3>{item.name}</h3>
                       <h3>{item.price}$</h3>
                     </div>
-                    <button className="card-button">add to cart</button>
+                    <CustomButton
+                      checkOut="check-out"
+                      className="shop-card__button">
+                      add to cart
+                    </CustomButton>
                   </Card.Body>
                 </Card>
               </Col>

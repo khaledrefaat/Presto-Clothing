@@ -82,7 +82,9 @@ class SignUp extends Component {
             required
             value={confirmPassword}
           />
-          <CustomButton type="submit">sign up</CustomButton>
+          <CustomButton type="submit" blackInverted="black-inverted">
+            sign up
+          </CustomButton>
         </form>
       </div>
     );

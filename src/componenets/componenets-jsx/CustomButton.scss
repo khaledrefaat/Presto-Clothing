@@ -8,6 +8,8 @@ $color-white: #fff;
   transition: all 0.3s ease-out;
   border: 1px solid transparent;
   transform: translateY(0);
+  background-color: #007bff;
+  color: $color-white;
 
   @media only screen and (min-width: 25em) {
     font-size: 1.4rem;
@@ -16,30 +18,34 @@ $color-white: #fff;
 
   @media only screen and (min-width: 62em) {
     font-size: 1.6rem;
+    padding: 1rem 2rem;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 
   &:active {
     transform: translateY(2px);
   }
 
-  &:active,
-  &:focus {
-    outline: none;
-    box-shadow: none;
+  &__black-inverted {
+    background-color: $color-black;
+    color: $color-white;
   }
-
-  &:active:focus {
-    box-shadow: none !important;
-  }
-}
-
-.background-black {
-  background-color: $color-black;
-  color: $color-white;
-
-  &:hover {
+  &__black-inverted:hover {
     background-color: $color-white;
     color: $color-black;
     border: 1px solid $color-black;
+    opacity: 1;
+  }
+
+  &__check-out {
+    background-color: rgba($color-black, 0.7);
+  }
+
+  &__check-out:hover {
+    background-color: rgba($color-white, 0.6);
+    color: $color-black;
   }
 }

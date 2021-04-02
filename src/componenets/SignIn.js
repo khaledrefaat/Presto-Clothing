@@ -52,7 +52,9 @@ export class SignIn extends Component {
             required
           />
           <div className="btn-container">
-            <CustomButton type="submit">sign in</CustomButton>
+            <CustomButton type="submit" blackInverted="black-inverted">
+              sign in
+            </CustomButton>
             <CustomButton onClick={signInWithGoogle}>
               sign in with google
             </CustomButton>
