@@ -46,9 +46,9 @@ function Header({ currentUser, toggleCart }) {
   );
 }
 
-const mapStateToProps = ({ user, toggleCart }) => ({
+const mapStateToProps = ({ user, cart }) => ({
   currentUser: user.currentUser,
-  toggleCart: toggleCart.hidden,
+  toggleCart: cart.hidden,
 });
 
 export default connect(mapStateToProps)(Header);

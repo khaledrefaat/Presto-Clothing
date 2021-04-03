@@ -9,7 +9,6 @@ const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
     cartItem => cartItem.id === cartItemToAdd.id
   );
-  console.log(existingCartItem);
   if (existingCartItem) {
     return cartItems.map(cartItem =>
       cartItem.id === cartItemToAdd.id
