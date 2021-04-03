@@ -4,13 +4,22 @@ import './CartIcon.scss';
 import { connect } from 'react-redux';
 import { toggleCartHidden } from '../../redux/actions/cartAction';
 
-function CartIcon({ toggleCartHidden }) {
+function CartIcon({ toggleCartHidden, cartItems }) {
+  const renderQuantity = () =>
+    cartItems.map(curr => curr.quantity).reduce((acc, curr) => acc + curr);
+
   return (
     <div className="cart-icon" onClick={toggleCartHidden}>
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">22</span>
+      <span className="item-count">
+        {cartItems.length > 0 ? renderQuantity() : '0'}
+      </span>
     </div>
   );
 }
 
-export default connect(null, { toggleCartHidden })(CartIcon);
+const mapStateToProps = ({ cart }) => ({
+  cartItems: cart.cartItems,
+});
+
+export default connect(mapStateToProps, { toggleCartHidden })(CartIcon);
