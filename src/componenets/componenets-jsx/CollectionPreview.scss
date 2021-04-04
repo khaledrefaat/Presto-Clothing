@@ -59,9 +59,22 @@
     // to over write the customButton transfrom
     transform: translateX(-50%) !important;
 
+    // to fix button text splited into 2 lines
+    // 538px
+    @media only screen and (min-width: 33.625em) {
+      // to over write the customButton transfrom
+      padding: 1rem !important;
+    }
+
     // 576px (2 column grid)
     @media only screen and (min-width: 36em) {
       bottom: 25%;
+    }
+
+    // to fix button text splited into 2 lines
+    // 768px
+    @media only screen and (min-width: 48em) {
+      padding: 1rem 2rem;
     }
 
     // 770px to make it work untill iPad width

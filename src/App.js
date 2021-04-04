@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import HomePage from './pages/homepage';
 import Shop from './pages/shop';
+import Checkout from './pages/checkout';
 import Header from './componenets/componenets-jsx/Header';
 import SigninSignup from './pages/signinSignup';
 import { auth, createUserProfileDocument } from './firebase/firebase';
@@ -52,6 +53,7 @@ class App extends Component {
               this.props.currentUser ? <Redirect to="/" /> : <SigninSignup />
             }
           />
+          <Route exact path="/checkout" component={Checkout} />
         </Switch>
       </div>
     );
