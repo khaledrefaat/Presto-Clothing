@@ -1,7 +1,30 @@
 import React from 'react';
 import './checkout.scss';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-function checkout() {
+import { selectCartItems } from '../redux/cartSelector';
+
+function checkout({ selectCartItems }) {
+  const renderItems = () =>
+    selectCartItems.map(({ id, imageUrl, name, price, quantity }) => (
+      <div className="checkout__item" key={id}>
+        <div className="checkout__item--img">
+          <img src={imageUrl} alt={name} />
+        </div>
+        <div className="checkout__item--description">{name}</div>
+        <div className="checkout__item--quantity">
+          <span> &#10095; </span>
+          {quantity}
+          <span> &#10094; </span>
+        </div>
+        <div className="checkout__item--price">{price}</div>
+        <div className="checkout__item--remove">&#10006;</div>
+      </div>
+    ));
+
+  const renderPrice = () =>
+    selectCartItems.reduce((acc, curr) => curr.price * curr.quantity + acc, 0);
   return (
     <div className="checkout">
       <div className="checkout__header">
@@ -11,23 +34,16 @@ function checkout() {
         <span>price</span>
         <span>remove</span>
       </div>
-      <div className="checkout__item">
-        <div className="checkout__item--img">
-          <img
-            src="https://i.ibb.co/bPmVXyP/black-converse.png"
-            alt="black-converse"
-          />
-        </div>
-        <div className="checkout__item--description">black converse</div>
-        <div className="checkout__item--quantity">
-          <span> &#10095; </span>5<span> &#10094; </span>
-        </div>
-        <div className="checkout__item--price">100</div>
-        <div className="checkout__item--remove">&#10006;</div>
+      {selectCartItems.length ? renderItems() : null}
+      <div className="checkout__total">
+        {selectCartItems.length ? renderPrice() + '$' : null}
       </div>
-      <div className="checkout__total">total 1750$</div>
     </div>
   );
 }
 
-export default checkout;
+const mapStateToProps = createStructuredSelector({
+  selectCartItems,
+});
+
+export default connect(mapStateToProps)(checkout);
