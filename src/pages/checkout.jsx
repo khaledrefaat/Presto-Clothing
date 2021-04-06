@@ -3,28 +3,28 @@ import './checkout.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCartItems } from '../redux/cartSelector';
+import { selectCartItems, selectCartTotal } from '../redux/cartSelector';
+import { deleteItem } from '../redux/actions/cartAction';
 
-function checkout({ selectCartItems }) {
+function checkout({ cartItems, totalPrice, deleteItem }) {
   const renderItems = () =>
-    selectCartItems.map(({ id, imageUrl, name, price, quantity }) => (
+    cartItems.map(({ id, imageUrl, name, price, quantity }) => (
       <div className="checkout__item" key={id}>
         <div className="checkout__item--img">
           <img src={imageUrl} alt={name} />
         </div>
         <div className="checkout__item--description">{name}</div>
         <div className="checkout__item--quantity">
-          <span> &#10095; </span>
-          {quantity}
           <span> &#10094; </span>
+          {quantity}
+          <span> &#10095; </span>
         </div>
         <div className="checkout__item--price">{price}</div>
-        <div className="checkout__item--remove">&#10006;</div>
+        <div className="checkout__item--remove" onClick={() => deleteItem(id)}>
+          &#10006;
+        </div>
       </div>
     ));
-
-  const renderPrice = () =>
-    selectCartItems.reduce((acc, curr) => curr.price * curr.quantity + acc, 0);
   return (
     <div className="checkout">
       <div className="checkout__header">
@@ -34,16 +34,17 @@ function checkout({ selectCartItems }) {
         <span>price</span>
         <span>remove</span>
       </div>
-      {selectCartItems.length ? renderItems() : null}
+      {cartItems.length ? renderItems() : null}
       <div className="checkout__total">
-        {selectCartItems.length ? renderPrice() + '$' : null}
+        {cartItems.length ? totalPrice + '$' : null}
       </div>
     </div>
   );
 }
 
 const mapStateToProps = createStructuredSelector({
-  selectCartItems,
+  cartItems: selectCartItems,
+  totalPrice: selectCartTotal,
 });
 
-export default connect(mapStateToProps)(checkout);
+export default connect(mapStateToProps, { deleteItem })(checkout);
