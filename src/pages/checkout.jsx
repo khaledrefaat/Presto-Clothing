@@ -4,27 +4,42 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { selectCartItems, selectCartTotal } from '../redux/cartSelector';
-import { deleteItem } from '../redux/actions/cartAction';
+import {
+  deleteItem,
+  addItem,
+  removeItemFromCart,
+} from '../redux/actions/cartAction';
 
-function checkout({ cartItems, totalPrice, deleteItem }) {
+function checkout({
+  cartItems,
+  totalPrice,
+  deleteItem,
+  addItem,
+  removeItemFromCart,
+}) {
   const renderItems = () =>
-    cartItems.map(({ id, imageUrl, name, price, quantity }) => (
-      <div className="checkout__item" key={id}>
-        <div className="checkout__item--img">
-          <img src={imageUrl} alt={name} />
+    cartItems.map(item => {
+      const { id, imageUrl, name, price, quantity } = item;
+      return (
+        <div className="checkout__item" key={id}>
+          <div className="checkout__item--img">
+            <img src={imageUrl} alt={name} />
+          </div>
+          <div className="checkout__item--description">{name}</div>
+          <div className="checkout__item--quantity">
+            <span onClick={() => removeItemFromCart(item)}>&#10094;</span>
+            {quantity}
+            <span onClick={() => addItem(item)}>&#10095;</span>
+          </div>
+          <div className="checkout__item--price">{price}</div>
+          <div
+            className="checkout__item--remove"
+            onClick={() => deleteItem(id)}>
+            &#10006;
+          </div>
         </div>
-        <div className="checkout__item--description">{name}</div>
-        <div className="checkout__item--quantity">
-          <span> &#10094; </span>
-          {quantity}
-          <span> &#10095; </span>
-        </div>
-        <div className="checkout__item--price">{price}</div>
-        <div className="checkout__item--remove" onClick={() => deleteItem(id)}>
-          &#10006;
-        </div>
-      </div>
-    ));
+      );
+    });
   return (
     <div className="checkout">
       <div className="checkout__header">
@@ -47,4 +62,8 @@ const mapStateToProps = createStructuredSelector({
   totalPrice: selectCartTotal,
 });
 
-export default connect(mapStateToProps, { deleteItem })(checkout);
+export default connect(mapStateToProps, {
+  deleteItem,
+  addItem,
+  removeItemFromCart,
+})(checkout);

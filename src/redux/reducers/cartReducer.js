@@ -1,4 +1,9 @@
-import { TOGGLE_CARD_HIDDEN, ADD_ITEM, DELETE_ITEM } from '../actions/types';
+import {
+  TOGGLE_CARD_HIDDEN,
+  ADD_ITEM,
+  DELETE_ITEM,
+  REMOVE_ITEM_FROM_CART,
+} from '../actions/types';
 
 const INITIAL_STATE = {
   hidden: true,
@@ -20,6 +25,21 @@ const addItemToCart = (cartItems, cartItemToAdd) => {
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 
+const removeItemFromCart = (cartItems, itemToRemove) => {
+  const existingCartItem = cartItems.find(
+    cartItem => cartItem.id === itemToRemove.id
+  );
+
+  if (existingCartItem.quantity === 1)
+    return cartItems.filter(item => item.id !== existingCartItem.id);
+
+  return cartItems.map(cartItem =>
+    cartItem.id === existingCartItem.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem
+  );
+};
+
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOGGLE_CARD_HIDDEN:
@@ -32,10 +52,18 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
       };
+    case REMOVE_ITEM_FROM_CART:
+      return {
+        ...state,
+        cartItems: removeItemFromCart(state.cartItems, action.payload),
+      };
+
     case DELETE_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.filter(item => item.id !== action.payload),
+        cartItems: state.cartItems.filter(
+          cartItem => cartItem.id !== action.payload
+        ),
       };
     default:
       return state;

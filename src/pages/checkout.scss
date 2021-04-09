@@ -90,6 +90,22 @@
     height: 100%;
   }
 
+  &__item--quantity::selection,
+  &__item--remove::selection {
+    background-color: transparent;
+  }
+
+  & {
+    ::selection {
+      background-color: transparent;
+    }
+  }
+
+  &__item--quantity span:first-child,
+  &__item--quantity span:last-child {
+    margin: 0 0.5rem;
+  }
+
   &__item--quantity span,
   &__item--remove {
     font-weight: 700;
