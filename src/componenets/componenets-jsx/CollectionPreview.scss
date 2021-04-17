@@ -1,7 +1,17 @@
 .shop-title {
   font-weight: 300;
-  font-size: 2.5rem;
-  margin-top: 1em;
+  font-size: 3rem;
+  margin: 2rem 0;
+  display: inline-block;
+  cursor: pointer;
+  color: #000;
+  transition: color 0.2s ease-out;
+}
+
+.shop-title:hover {
+  opacity: 0.9;
+  text-decoration: none;
+  color: #333;
 }
 
 .shop-card {

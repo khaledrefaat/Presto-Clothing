@@ -4,6 +4,7 @@ import { addItem } from '../../redux/actions/cartAction';
 import { Row, Col, Card } from 'react-bootstrap';
 import './CollectionPreview.scss';
 import CustomButton from './CustomButton';
+import { Link } from 'react-router-dom';
 
 function CollectionPreview({ item, len, addItem }) {
   const { title, items } = item;
@@ -13,7 +14,9 @@ function CollectionPreview({ item, len, addItem }) {
       return (
         <Row>
           <Col lg="12">
-            <h2 className="shop-title">{title}</h2>
+            <Link to={`/shop/${title.toLowerCase()}`} className="shop-title">
+              {title}
+            </Link>
           </Col>
           {items
             .filter((item, index) => index < len)
@@ -43,7 +46,11 @@ function CollectionPreview({ item, len, addItem }) {
     }
     return (
       <Row>
-        <Col lg="12">{title}</Col>
+        <Col lg="12">
+          <Link to={`/shop/${title.toLowerCase()}`} className="shop-title">
+            {title}
+          </Link>
+        </Col>
         {items.map(item => (
           <Col key={item.id} md="3" sm="6" xs="12">
             <Card className="shop-card">
