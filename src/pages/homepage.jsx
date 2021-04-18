@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import MenuItem from '../componenets/componenets-jsx/MenuItem';
-import './homepage.scss';
 import { connect } from 'react-redux';
 import { selectDirectorySection } from '../redux/directorySelector';
 import { createStructuredSelector } from 'reselect';
@@ -13,7 +12,7 @@ function Homepage({ sections }) {
         <Col key={index} xs="12" sm={12 / arr.length}>
           <MenuItem
             title={curr.title}
-            linkPath={`/${curr.title}`}
+            linkPath={curr.linkUrl}
             imgSrc={`${curr.imageUrl}`}
           />
         </Col>

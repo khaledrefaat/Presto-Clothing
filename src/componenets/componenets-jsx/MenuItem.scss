@@ -1,0 +1,73 @@
+.menu-item {
+  position: relative;
+  overflow: hidden;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 1rem;
+  color: #000;
+
+  img {
+    filter: brightness(75%);
+    transition: transform 0.3s ease-out;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+
+  &:hover > img {
+    transform: scale(1.1);
+  }
+  // 580px
+  @media only screen and (min-width: 36em) {
+    height: 20rem;
+  }
+  // 800px
+  @media only screen and (min-width: 50em) {
+    height: 25rem;
+  }
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+
+    // 800px
+    @media only screen and (min-width: 50em) {
+      padding: 1.5rem;
+    }
+  }
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 500;
+
+    @media only screen and (min-width: 36em) {
+      font-size: 1.8rem;
+    }
+
+    // 800px
+    @media only screen and (min-width: 50em) {
+      font-size: 2.2rem;
+      font-weight: 500;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.6rem;
+
+    // 580px
+
+    @media only screen and (min-width: 36em) {
+      font-size: 1rem;
+    }
+    // 800px
+    @media only screen and (min-width: 50em) {
+      font-size: 1.4rem;
+    }
+  }
+}

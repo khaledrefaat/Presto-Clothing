@@ -9,11 +9,13 @@ import CollectionPreview from '../componenets/componenets-jsx/CollectionPreview'
 
 const Shop = ({ match, collection }) => {
   const renderCollectionOverview = () => (
-    <div>
-      {collection.map(item => (
-        <CollectionPreview key={item.id} len="4" item={item} />
-      ))}
-    </div>
+    <>
+      {Object.entries(collection)
+        .map(curr => curr['1'])
+        .map(item => (
+          <CollectionPreview key={item.id} len="4" item={item} />
+        ))}
+    </>
   );
 
   return (

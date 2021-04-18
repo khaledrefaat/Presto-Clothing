@@ -5,7 +5,6 @@ import { createStructuredSelector } from 'reselect';
 import CollectionPreview from './CollectionPreview';
 
 function Collection({ collection }) {
-  console.log(collection);
   return (
     <div className="collection">
       <CollectionPreview item={collection} />
