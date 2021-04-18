@@ -47,18 +47,16 @@ function CollectionPreview({ item, len, addItem }) {
     return (
       <Row>
         <Col lg="12">
-          <Link to={`/shop/${title.toLowerCase()}`} className="shop-title">
-            {title}
-          </Link>
+          <h1 className="shop-title">{title}</h1>
         </Col>
         {items.map(item => (
           <Col key={item.id} md="3" sm="6" xs="12">
             <Card className="shop-card">
-              <div className="img-container">
+              <div className="shop-card__img-container">
                 <Card.Img variant="top" src={item.imageUrl} />
               </div>
               <Card.Body>
-                <div className="card-content">
+                <div className="shop-card__content">
                   <h3>{item.name}</h3>
                   <h3>{item.price}$</h3>
                 </div>

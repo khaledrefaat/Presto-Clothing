@@ -2,12 +2,13 @@ import React from 'react';
 import { selectCollection } from '../../redux/shopSelector';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import CollectionPreview from './CollectionPreview';
 
 function Collection({ collection }) {
   console.log(collection);
   return (
     <div className="collection">
-      <h2>Category Hats</h2>
+      <CollectionPreview item={collection} />
     </div>
   );
 }
