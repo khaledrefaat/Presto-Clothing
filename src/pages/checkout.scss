@@ -132,4 +132,12 @@
       font-size: 2rem;
     }
   }
+
+  &__warning {
+    color: #f00;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    text-align: center;
+  }
 }

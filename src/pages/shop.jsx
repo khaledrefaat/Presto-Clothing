@@ -4,14 +4,14 @@ import { Container } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectShopCollection } from '../redux/shopSelector';
-import CollectionPreview from '../componenets/componenets-jsx/CollectionPreview';
+import { selectCollectionForPreview } from '../redux/shopSelector';
+import ShowCollection from '../componenets/componenets-jsx/ShowCollection';
 
 const Shop = ({ match, collection }) => {
   const renderCollectionOverview = () => (
     <>
       {collection.map(item => (
-        <CollectionPreview key={item.id} len="4" item={item} />
+        <ShowCollection key={item.id} len="4" item={item} />
       ))}
     </>
   );
@@ -29,7 +29,7 @@ const Shop = ({ match, collection }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  collection: selectShopCollection,
+  collection: selectCollectionForPreview,
 });
 
 export default connect(mapStateToProps)(Shop);

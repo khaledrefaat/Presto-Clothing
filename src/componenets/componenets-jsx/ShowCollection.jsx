@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addItem } from '../../redux/actions/cartAction';
 import { Row, Col, Card } from 'react-bootstrap';
-import './CollectionPreview.scss';
+import './ShowCollection.scss';
 import CustomButton from './CustomButton';
 import { Link } from 'react-router-dom';
 
