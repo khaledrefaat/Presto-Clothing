@@ -1,4 +1,6 @@
-.form-input {
+import styled from 'styled-components';
+
+const FormInputContainer = styled.input`
   border-top: none;
   border-left: none;
   border-right: none;
@@ -18,4 +20,6 @@
   ::placeholder {
     text-transform: capitalize;
   }
-}
+`;
+
+export default FormInputContainer;

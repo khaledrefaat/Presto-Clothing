@@ -1,24 +1,23 @@
 import React from 'react';
-import './CustomButton.scss';
+import CustomButtonContainer from './CustomButtonStyles';
 
-function CustomButton({
-  children,
-  className,
-  checkOut,
-  blackInverted,
-  ...otherProps
-}) {
-  return (
-    <button
-      className={`custom-button ${
-        blackInverted ? 'custom-button__' + blackInverted : ''
-      } ${className ? className : ''} ${
-        checkOut ? 'custom-button__' + checkOut : ''
-      }`}
-      {...otherProps}>
-      {children}
-    </button>
-  );
+function CustomButton({ children, checkOut, blackInverted, ...otherProps }) {
+  const renderButton = () => {
+    if (blackInverted)
+      return (
+        <CustomButtonContainer blackInverted={true}>
+          {children}
+        </CustomButtonContainer>
+      );
+    else if (checkOut)
+      return (
+        <CustomButtonContainer checkout={true}>
+          {children}
+        </CustomButtonContainer>
+      );
+    return <CustomButtonContainer> {children} </CustomButtonContainer>;
+  };
+  return <>{renderButton()}</>;
 }
 
 export default CustomButton;
