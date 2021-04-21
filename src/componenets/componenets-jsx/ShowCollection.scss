@@ -22,7 +22,7 @@
   transition: all 0.3s ease-out;
   height: 100%;
 
-  &:hover &__button {
+  &:hover button {
     opacity: 1;
     visibility: visible;
     pointer-events: all;

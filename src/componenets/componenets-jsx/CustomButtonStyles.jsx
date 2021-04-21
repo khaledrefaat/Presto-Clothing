@@ -35,25 +35,26 @@ const blackInvertedStyles = css`
   color: #fff;
 
   &:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
   }
 `;
 
 const checkOutStyles = css`
-  background-color: rgba(#fff, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   color: #000;
   padding: 1rem 2rem;
 
   &:hover {
-    background-color: rgba(#000, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
   }
 `;
 
-function getButtonStyles(props) {
-  if (props.blackInverted) return blackInvertedStyles;
-  else if (props.checkOut) return checkOutStyles;
+function getButtonStyles({ blackInverted, checkOut }) {
+  if (blackInverted) return blackInvertedStyles;
+  if (checkOut) return checkOutStyles;
   return;
 }
 

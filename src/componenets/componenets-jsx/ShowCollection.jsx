@@ -5,8 +5,49 @@ import { Row, Col, Card } from 'react-bootstrap';
 import './ShowCollection.scss';
 import CustomButton from './CustomButton';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 function CollectionPreview({ item, len, addItem }) {
+  const ButtonContainer = styled(CustomButton)`
+  position: absolute;
+    bottom: 20%;
+    left: 50%;
+    width: 80%;
+    // to over write the customButton transfrom
+    transform: translateX(-50%) !important;
+
+    // to fix button text splited into 2 lines
+    // 538px
+    @media only screen and (min-width: 33.625em) {
+      // to over write the customButton transfrom
+      padding: 1rem !important;
+    }
+
+    // 576px (2 column grid)
+    @media only screen and (min-width: 36em) {
+      bottom: 25%;
+    }
+
+    // to fix button text splited into 2 lines
+    // 768px
+    @media only screen and (min-width: 48em) {
+      padding: 1rem 2rem;
+    }
+
+    // 770px to make it work untill iPad width
+    @media only screen and (min-width: 48.125em) {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
+  &:active {
+    // to over write the customButton transfrom
+    transform: translateY(2px) translateX(-50%) !important;
+  }
+  `;
+
   const { title, items } = item;
   const addToCart = item => addItem(item);
   function renderCollections() {
@@ -31,12 +72,11 @@ function CollectionPreview({ item, len, addItem }) {
                       <h3>{item.name}</h3>
                       <h3>{item.price}$</h3>
                     </div>
-                    <CustomButton
-                      checkOut="check-out"
-                      className="shop-card__button"
+                    <ButtonContainer
+                      checkOut={true}
                       onClick={() => addToCart(item)}>
                       add to cart
-                    </CustomButton>
+                    </ButtonContainer>
                   </Card.Body>
                 </Card>
               </Col>
@@ -60,12 +100,11 @@ function CollectionPreview({ item, len, addItem }) {
                   <h3>{item.name}</h3>
                   <h3>{item.price}$</h3>
                 </div>
-                <CustomButton
-                  checkOut="check-out"
-                  className="shop-card__button"
+                <ButtonContainer
+                  checkOut={true}
                   onClick={() => addToCart(item)}>
                   add to cart
-                </CustomButton>
+                </ButtonContainer>
               </Card.Body>
             </Card>
           </Col>
